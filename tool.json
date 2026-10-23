@@ -1,0 +1,13 @@
+{
+  "id": "o08",
+  "slug": "excel-to-word-batch",
+  "name": "Excel 批量套 Word 模板",
+  "version": "0.1.0",
+  "repo": "campfire-code/excel-to-word-batch",
+  "license": "MIT",
+  "ui": {
+    "layout": "c",
+    "palette": "rose"
+  },
+  "upstream": null
+}
