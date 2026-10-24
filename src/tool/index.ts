@@ -6,6 +6,8 @@ import type { BatchTool, InputItem, ItemResult } from '../kit/types';
 import { baseName, fileNameFor, missingTags, patternProblems, rowData, safeName, suspiciousBraces, toTable, uniqueNamer, type Table } from './core';
 import { fillTemplate, inspectTemplate } from './docx';
 import { readSheets } from './xlsx';
+import { Empty } from './Empty';
+import { ResultBody } from './Result';
 
 type Data = { kind: 'template'; tags: string[] } | { kind: 'table'; table: Table };
 
@@ -22,6 +24,8 @@ const tool: BatchTool = {
   mode: 'batch',
   resultView: 'list',
   concurrency: 1,
+  Empty,
+  ResultBody,
   accept: { label: 'Word 模板和表格', extensions: ['docx', 'xlsx', 'csv', 'doc', 'xls'] },
   params: [
     {

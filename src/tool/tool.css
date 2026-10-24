@@ -1,0 +1,54 @@
+/* Excel 批量套 Word 模板：布局 d（左列表、右预览）。只用 kit.css 的变量，类名以 xw- 开头。
+   焦点：模板上高亮的占位符，以及名单「将生成几份」的大字。 */
+
+/* ---- 空状态 ---- */
+.xw-empty { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 12px; text-align: center; min-height: 100%; justify-content: center; }
+.xw-empty > svg { width: 100%; max-width: 620px; height: auto; }
+.xw-paper { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.4; }
+.xw-ink { fill: var(--ink); opacity: .75; }
+.xw-ln { fill: var(--line-strong); opacity: .8; }
+.xw-tag { fill: var(--primary-soft); stroke: var(--primary); stroke-width: 1; }
+.xw-tagt { font-size: 7px; fill: var(--primary); font-weight: 700; font-family: var(--font); }
+.xw-sheet { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.4; }
+.xw-head { fill: var(--primary); }
+.xw-ht { font-size: 10px; fill: var(--on-primary); font-weight: 700; font-family: var(--font); }
+.xw-ct { font-size: 10px; fill: var(--ink); font-family: var(--font); }
+.xw-rule { stroke: var(--line); stroke-width: 1; }
+.xw-plus { font-size: 24px; fill: var(--muted); font-family: var(--font); }
+.xw-arrow { fill: none; stroke: var(--primary); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.xw-doc { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.2; }
+.xw-doc.hot { fill: var(--primary-soft); stroke: var(--primary); }
+.xw-w { fill: var(--primary); }
+.xw-wt { font-size: 10px; fill: var(--on-primary); font-weight: 800; font-family: var(--font); }
+.xw-ft { font-size: 10.5px; fill: var(--ink); font-family: var(--font); }
+.xw-cap { font-size: 11px; fill: var(--muted); font-family: var(--font); }
+.xw-title { font-size: 1.35em; font-weight: 700; color: var(--ink); margin-top: 4px; }
+.xw-act { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: var(--primary-soft); color: var(--primary); font-weight: 600; text-align: left; line-height: 1.4; }
+.xw-act svg { flex: none; }
+
+/* ---- 右侧预览 ---- */
+.xw-body { display: grid; gap: 14px; align-content: start; }
+.xw-big { display: flex; align-items: baseline; gap: 8px; }
+.xw-big b { font-size: 4em; line-height: 1; font-weight: 800; color: var(--primary); letter-spacing: -.03em; }
+.xw-big span { font-size: 1.2em; font-weight: 600; color: var(--ink); }
+.xw-sub { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 6px; color: var(--muted); }
+.xw-tpl { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; align-items: center; }
+.xw-page { aspect-ratio: 3 / 4; background: var(--bg); border: 1px solid var(--line-strong); border-radius: 4px; padding: 14px 12px; display: grid; align-content: start; gap: 8px; box-shadow: 0 4px 14px rgb(0 0 0 / .08); }
+.xw-bar { display: block; height: 5px; border-radius: 3px; background: var(--line-strong); opacity: .75; }
+.xw-bar.w50 { width: 50%; background: var(--ink); opacity: .6; height: 6px; }
+.xw-bar.w80 { width: 80%; }
+.xw-bar.w60 { width: 60%; }
+.xw-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.xw-tags b { font-size: 11px; padding: 1px 5px; border-radius: 3px; background: var(--primary-soft); color: var(--primary); border: 1px solid var(--primary); font-weight: 700; }
+.xw-side { display: grid; gap: 8px; }
+.xw-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.xw-chips span { padding: 3px 10px; min-height: 26px; display: inline-flex; align-items: center; border-radius: 6px; background: var(--primary-soft); color: var(--primary); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.xw-grid-wrap { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); }
+.xw-grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.xw-grid th { text-align: left; padding: 8px 12px; background: var(--primary-soft); color: var(--primary); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.xw-grid td { padding: 8px 12px; border-top: 1px solid var(--line); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
+.xw-grid .xw-more { width: 2.2em; color: var(--muted); text-align: center; }
+.xw-rest { padding: 6px 12px; border-top: 1px solid var(--line); color: var(--muted); background: var(--bg); }
+
+@media (max-width: 760px) { .xw-tpl { grid-template-columns: 1fr; } }
